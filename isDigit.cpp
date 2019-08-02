@@ -2,22 +2,20 @@
 
 int main() {
   std::cout << "Enter a string (I will grep all numbers from it): ";
-  std::string lineStr;
-  std::cin >> lineStr;
+  char symbolsCharArray[150];
+  std::cin >> symbolsCharArray;
 
-  int lenOfLine = lineStr.length();
-  char sybmolsCharArray[++lenOfLine];
-  strcpy(sybmolsCharArray, lineStr.c_str()); 
-
-  const short int asciiDigitsRangeStartFrom = 48;
-  const short int asciiDigitsRangeEnd = 58;
-  for (auto singleCharFromLine: sybmolsCharArray) {
-    if ((int(singleCharFromLine) >= asciiDigitsRangeStartFrom) && (int(singleCharFromLine) <= asciiDigitsRangeEnd)) {
-      std::cout << int(singleCharFromLine) - asciiDigitsRangeStartFrom << " ";
+  const char LOWER_DIGIT_RANGE = '1';
+  const char HIGH_DIGIT_RANGE = '9';
+  for (auto singleCharFromLine: symbolsCharArray) {
+    if (singleCharFromLine == '\0') {
+      break;
+    }
+    if ((singleCharFromLine >= LOWER_DIGIT_RANGE) && (singleCharFromLine <= HIGH_DIGIT_RANGE)) {
+      std::cout << singleCharFromLine;
     }
   }
   std::cout << std::endl;
 
   return 0;
 }
-

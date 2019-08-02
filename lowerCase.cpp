@@ -1,31 +1,21 @@
 #include <iostream>
-
-char lowerCase(char singleChar) {
-  const short int asciiLowerCaseRangeStartFrom = 65;
-  const short int asciiLowerCaseRangeEnd = 90;
-  const short int shift = 32;
-
-  if ((singleChar >= asciiLowerCaseRangeStartFrom) && (singleChar <= asciiLowerCaseRangeEnd)) {
-    return singleChar + shift;
-  } else {
-    return singleChar;
-  }
-}
+#include <stdint.h>
 
 int main() {
   std::cout << "Enter a string (I will change register to LOWER format): ";
-  std::string lineStr;
-  std::cin >> lineStr;
+  char symbolsCharArray[150];
+  std::cin >> symbolsCharArray;
 
-  int lenOfLine = lineStr.length();
-  char sybmolsCharArray[++lenOfLine];
-  strcpy(sybmolsCharArray, lineStr.c_str()); 
+  const char ASCII_LOWER_CASE_RANGE_STARTS_FROM = 'A';
+  const char ASCII_LOWER_CASE_RANGE_END_TO = 'Z';
+  const uint16_t SHIFT = 32;
 
-  for (auto singleCharFromLine: sybmolsCharArray) {
-    std::cout << lowerCase(singleCharFromLine);
-
+  for (auto singleCharFromLine: symbolsCharArray) {
+    if (singleCharFromLine == '\0') {
+      break;
+    }
+    std::cout << (((singleCharFromLine >= ASCII_LOWER_CASE_RANGE_STARTS_FROM) && (singleCharFromLine <= ASCII_LOWER_CASE_RANGE_END_TO)) ? char(singleCharFromLine + SHIFT) : singleCharFromLine);
   }
   std::cout << std::endl;
-
   return 0;
 }

@@ -1,31 +1,35 @@
 #include <iostream>
+#include <stdint.h>
 
 void swap(char& first_elem, char& last_elem) {
-    char temp;
-    temp = first_elem;
-    first_elem = last_elem;
-    last_elem = temp;
+  char temp = first_elem;
+  first_elem = last_elem;
+  last_elem = temp;
 }
 
 int main() {
   std::cout << "Enter a string (I will revert it): ";
-  std::string lineStr;
-  std::cin >> lineStr;
+  const uint16_t MAX_COUNT_OF_SYMBOLS = 150;
+  char symbolsCharArray[MAX_COUNT_OF_SYMBOLS];
+  std::cin >> symbolsCharArray;
 
-  int lenOfLine = lineStr.length();
-  char sybmolsCharArray[++lenOfLine];
-  strcpy(sybmolsCharArray, lineStr.c_str());
+  uint16_t halfOfLenArray;
+  uint16_t lenOfLine;
 
-  const short int halfOfLenArray = (lenOfLine / 2);
+  for (size_t i = 0; i < MAX_COUNT_OF_SYMBOLS; ++i) {
+    if (symbolsCharArray[i] == '\0') {
+      halfOfLenArray = (i / 2);
+      lenOfLine = i;
+      break;
+    }
+  }
 
   for (size_t i = 0; i < halfOfLenArray; ++i) {
-    swap(sybmolsCharArray[i], sybmolsCharArray[(lenOfLine - 1) - i]);
+    swap(symbolsCharArray[i], symbolsCharArray[(lenOfLine - 1) - i]);
   }
 
-  for (auto singleCharFromLine: sybmolsCharArray) {
-    std::cout << singleCharFromLine;
-  }
-  std::cout << std::endl;
+  std::cout << symbolsCharArray << std::endl;
 
   return 0;
 }
+

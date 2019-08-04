@@ -12,8 +12,8 @@ int main() {
   const uint16_t SHIFT = 32;
 
   for (size_t i = 0; symbolsCharArray[i] != '\0'; ++i) {
-    std::cout << (((symbolsCharArray[i] >= ASCII_LOWER_CASE_RANGE_STARTS_FROM) && \
-    (symbolsCharArray[i] <= ASCII_LOWER_CASE_RANGE_END_TO)) ? \
+    std::cout << (((symbolsCharArray[i] >= ASCII_LOWER_CASE_RANGE_STARTS_FROM) && 
+    (symbolsCharArray[i] <= ASCII_LOWER_CASE_RANGE_END_TO)) ? 
     char(symbolsCharArray[i] + SHIFT) : symbolsCharArray[i]);
   }
   std::cout << std::endl;

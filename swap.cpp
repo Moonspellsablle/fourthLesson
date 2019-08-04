@@ -13,10 +13,10 @@ int main() {
   char symbolsCharArray[MAX_COUNT_OF_SYMBOLS]{};
   std::cin >> symbolsCharArray;
 
-  uint16_t lenOfLine;
+  uint16_t lenOfLine = 0;
 
-  for (size_t i = 0; symbolsCharArray[i] != '\0'; ++i) {
-    lenOfLine = (i + 1);
+  for (lenOfLine = 0; symbolsCharArray[lenOfLine] != '\0'; ++lenOfLine) {
+    ;
   }
 
    for (char *begin = symbolsCharArray, *end = symbolsCharArray + (lenOfLine  - 1);

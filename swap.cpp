@@ -20,7 +20,7 @@ int main() {
   }
 
    for (char *begin = symbolsCharArray, *end = symbolsCharArray + (lenOfLine  - 1);
-       begin != end; ++begin, --end) {
+       begin <= end; ++begin, --end) {
     swap(*begin, *end);
   }
 
